@@ -120,8 +120,6 @@ public class CameraActivity extends Activity implements CvCameraViewListener2,
                 .setTag(TaskType.HDR_PRESET_2).setTabListener(tabListener));
         actionBar.addTab(actionBar.newTab().setText("HDR")
                 .setTag(TaskType.HDR_LIVE).setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setText("HDR_Auto")
-                .setTag(TaskType.HDR_AUTO).setTabListener(tabListener));
     }
 
     static private File getPictureStorageDir() {
@@ -192,15 +190,6 @@ public class CameraActivity extends Activity implements CvCameraViewListener2,
         Toast.makeText(this, "Picture saved as " + imageFile.getName(),
                 Toast.LENGTH_SHORT).show();
         mImagePaths.add(imageFile.getPath());
-    }
-    
-    private void takeHDRPicture() {
-        File imageFile1 = makeUniqueImagePath(), imageFile2 = makeUniqueImagePath();
-        mCameraView.takeHDRPicture(imageFile1.getPath());
-        mCameraView.takeHDRPicture(imageFile2.getPath());
-        Toast.makeText(this, "2 pictures saved", Toast.LENGTH_SHORT).show();
-        mImagePaths.add(imageFile1.getPath());
-        mImagePaths.add(imageFile2.getPath());
     }
         
     private void clearCapturedImages() {
@@ -288,10 +277,6 @@ public class CameraActivity extends Activity implements CvCameraViewListener2,
         else if (mActiveTask == TaskType.HDR_LIVE) {
             takePicture();
             checkCaptureStatus();  
-        }
-        else if (mActiveTask == TaskType.HDR_AUTO) {
-            takeHDRPicture();
-            checkCaptureStatus();
         }
         return false;
     }

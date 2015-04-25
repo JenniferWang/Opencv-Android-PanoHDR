@@ -18,8 +18,7 @@ public class ImageProcessingTask extends AsyncTask<Void, Void, Void>
         PANORAMA_PRESET(NATIVE_OP_CODE_PANORAMA, "Panorama from Preset", 2),
         HDR_PRESET_1(NATIVE_OP_CODE_HDR, "Memorial Church HDR", 2),
         HDR_PRESET_2(NATIVE_OP_CODE_HDR, "Grand Canal HDR", 2),
-        HDR_LIVE(NATIVE_OP_CODE_HDR, "HDR", 2),
-        HDR_AUTO(NATIVE_OP_CODE_HDR, "HDR Auto", 2);
+        HDR_LIVE(NATIVE_OP_CODE_HDR, "HDR", 2);
         
         public final int code;
         public final int requiredImageCount;

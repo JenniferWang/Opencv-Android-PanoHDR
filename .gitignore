@@ -29,3 +29,7 @@ proguard/
 # JNI library files
 libs/
 obj/
+
+# other files
+*.pdf
+*.zip

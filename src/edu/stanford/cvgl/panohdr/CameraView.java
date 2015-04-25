@@ -46,38 +46,5 @@ public class CameraView extends JavaCameraView
         Log.i(TAG, "Taking picture.");
         mCamera.takePicture(null, null, pictureCallback);
     }
-    
-    public void takeHDRPicture(final String outputPath) {
-        Camera.Parameters parameters = mCamera.getParameters();
-   
-        if (picCount == 0) {
-            int minExpComp = parameters.getMinExposureCompensation();
-            parameters.setExposureCompensation((2 * minExpComp) / 3);
-            Log.i(TAG, "Set expsure compensation to " + parameters.getExposureCompensation());
-            mCamera.setParameters(parameters);
-            try{
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mCamera.startPreview();
-            takePicture(outputPath);
-            picCount++;
-        }
-        else if (picCount == 1) {
-            int maxExpComp = parameters.getMaxExposureCompensation();
-            parameters.setExposureCompensation(maxExpComp / 3);
-            Log.i(TAG, "Set expsure compensation to " + parameters.getExposureCompensation());
-            mCamera.setParameters(parameters);
-            try{
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mCamera.startPreview();
-            takePicture(outputPath);
-            picCount++;
-        }
-    }
    
 }
